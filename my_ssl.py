@@ -96,7 +96,7 @@ class LinkedList:
                 before_node = node
             node = node.next
         if remove_count > 0:
-            print(f"{key}번째 원소를 삭제합니다.")
+            print(f"{self.num_of_data - remove_count}번째 원소를 삭제합니다.")
         else:
             print("해당하는 원소가 없습니다.")
 
