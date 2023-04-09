@@ -85,20 +85,19 @@ class LinkedList:
     def remove(self, key):
         node = self.head.next
         before_node = self.head
-        remove_count = 0
+        index = 1
         while node != None:
             if node.data == key:
                 before_node.next = node.next
                 if node is self.tail:
                     self.tail = before_node
-                remove_count += 1
+                print(f"{index}번째 원소를 삭제합니다.")
+                return
             else:
                 before_node = node
-            node = node.next
-        if remove_count > 0:
-            print(f"{self.num_of_data - remove_count}번째 원소를 삭제합니다.")
-        else:
-            print("해당하는 원소가 없습니다.")
+                node = node.next
+                index += 1
+        print("해당하는 원소가 없습니다.")
 
 linked_list = LinkedList()
 
@@ -115,6 +114,5 @@ print()
 
 linked_list.remove(75)
 linked_list.traverse_all()
-print()
 linked_list.remove(150)
 linked_list.traverse_all()
