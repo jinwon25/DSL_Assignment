@@ -65,9 +65,29 @@ class LinkedList:
         result += " -> null"
         print(result)
 
+    # insert_at 메소드 (리스트의 주어진 위치에 new_data를 삽입함)
+    def insert_at(self, position, new_data):
+        if position <= 0:
+            print("error")
+            return
+        elif position > self.num_of_data:
+            self.append(new_data)
+        else:
+            new_node = Node(new_data)
+            node = self.head
+            for i in range(position - 1):
+                node = node.next
+            new_node.next = node.next
+            node.next = new_node
+            self.num_of_data += 1
+
 linked_list = LinkedList()
 
 linked_list.append(100)
 linked_list.append(72)
 linked_list.append(325)
+linked_list.traverse_all()
+
+linked_list.insert_at(0, 150)
+linked_list.insert_at(2, 150)
 linked_list.traverse_all()
