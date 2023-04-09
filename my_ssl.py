@@ -81,6 +81,25 @@ class LinkedList:
             node.next = new_node
             self.num_of_data += 1
 
+    # remove 메소드 (리스트의 원소 가운데 key값과 일치하는 원소를 모두 삭제하고, 리스트를 수정함)
+    def remove(self, key):
+        node = self.head.next
+        before_node = self.head
+        remove_count = 0
+        while node != None:
+            if node.data == key:
+                before_node.next = node.next
+                if node is self.tail:
+                    self.tail = before_node
+                remove_count += 1
+            else:
+                before_node = node
+            node = node.next
+        if remove_count > 0:
+            print(f"{key}번째 원소를 삭제합니다.")
+        else:
+            print("해당하는 원소가 없습니다.")
+
 linked_list = LinkedList()
 
 linked_list.append(100)
@@ -90,4 +109,9 @@ linked_list.traverse_all()
 
 linked_list.insert_at(0, 150)
 linked_list.insert_at(2, 150)
+linked_list.traverse_all()
+
+linked_list.remove(75)
+linked_list.traverse_all()
+linked_list.remove(150)
 linked_list.traverse_all()
