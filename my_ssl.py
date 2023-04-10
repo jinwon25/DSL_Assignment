@@ -100,7 +100,6 @@ class LinkedList:
             index += 1
         if not removed_indexes:
             print("해당하는 원소가 없습니다.")
-        return removed_indexes
 
 linked_list = LinkedList()
 
