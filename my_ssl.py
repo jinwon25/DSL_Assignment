@@ -86,18 +86,21 @@ class LinkedList:
         node = self.head.next
         before_node = self.head
         index = 1
+        removed_indexes = []
         while node != None:
             if node.data == key:
                 before_node.next = node.next
                 if node is self.tail:
                     self.tail = before_node
                 print(f"{index}번째 원소를 삭제합니다.")
-                return
+                removed_indexes.append(index)
             else:
                 before_node = node
-                node = node.next
-                index += 1
-        print("해당하는 원소가 없습니다.")
+            node = node.next
+            index += 1
+        if not removed_indexes:
+            print("해당하는 원소가 없습니다.")
+        return removed_indexes
 
 linked_list = LinkedList()
 
@@ -109,6 +112,8 @@ print()
 
 linked_list.insert_at(0, 150)
 linked_list.insert_at(2, 150)
+linked_list.traverse_all()
+linked_list.insert_at(10, 150)
 linked_list.traverse_all()
 print()
 
