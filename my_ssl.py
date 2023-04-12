@@ -102,6 +102,7 @@ class LinkedList:
         if not removed_indexes:
             print("해당하는 원소가 없습니다.")
 
+# 추가 함수에 대한 예문
 linked_list = LinkedList()
 
 linked_list.append(100)
